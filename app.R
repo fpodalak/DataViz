@@ -143,8 +143,8 @@ ui <- dashboardPage(
     sliderInput(
       "year_range", "Year Range",
       min = min(movies_data$release_year, na.rm = TRUE),
-      max = 2016,
-      value = c(2000, 2016),
+      max = max(max(movies_data$release_year, na.rm = TRUE), 2020),
+      value = c(2000, max(max(movies_data$release_year, na.rm = TRUE), 2020)),
       step = 1
     ),
 
@@ -209,7 +209,7 @@ ui <- dashboardPage(
                 ),
                 box(
                   title = "Quick Stats", 
-                  status = "info", 
+                  status = "primary", 
                   solidHeader = TRUE,
                   width = 4,
                   valueBoxOutput("total_movies", width = 12),
@@ -291,10 +291,10 @@ ui <- dashboardPage(
         div(style = "height: 85vh; display: flex; flex-direction: column;",
           box(
           title = "Select Actor or Director", 
-          status = "info", 
+          status = "primary", 
           solidHeader = TRUE,
           width = 12,
-          height = "80vh",
+          height = "85vh",
           tabsetPanel(
             tabPanel("Actors", DT::dataTableOutput("actor_table")),
             tabPanel("Directors", DT::dataTableOutput("director_table"))
@@ -311,7 +311,7 @@ ui <- dashboardPage(
         status = "primary", 
         solidHeader = TRUE,
         width = 12,
-        height = "40vh",
+        height = "60vh",
         div(
         style = "display: flex; align-items: center; gap: 20px; margin-bottom: 10px;",
         strong("Current Person: "),
@@ -321,7 +321,7 @@ ui <- dashboardPage(
           min = 1, max = 2, value = 1, step = 1, width = "300px"
         )
         ),
-        withSpinner(networkD3::forceNetworkOutput("collaboration_network", height = "25vh"))
+        withSpinner(networkD3::forceNetworkOutput("collaboration_network", height = "40vh"))
       )
           ),
           fluidRow(
@@ -330,11 +330,10 @@ ui <- dashboardPage(
           status = "primary", 
           solidHeader = TRUE,
           width = 12,
-          height = "40vh",
           selectInput("person_select", "Select Person:",
             choices = c("Person 1", "Person 2", "Person 3"),
             selected = "Person 1"),
-          withSpinner(plotlyOutput("career_trajectory", height = "25vh"))
+          withSpinner(plotlyOutput("career_trajectory", height = "40vh"))
             )
           )
         )
@@ -782,7 +781,7 @@ output$career_trajectory <- renderPlotly({
     filter(grepl(selected_person(), cast, ignore.case = TRUE) | grepl(selected_person(), director, ignore.case = TRUE)) %>%
     select(title, release_year, revenue, vote_average) %>%
     filter(!is.na(release_year), !is.na(revenue), !is.na(vote_average))
-
+  
   p <- ggplot(data, aes(x = release_year, y = revenue / 1e6, color = vote_average, text = paste0(
     "Title: ", title,
     "<br>Year: ", release_year,
@@ -794,7 +793,7 @@ output$career_trajectory <- renderPlotly({
     labs(x = "Year", y = "Revenue (Millions $)", title = NULL) +
     theme_minimal() +
     theme(legend.position = "bottom")
-
+  
   ggplotly(p, tooltip = "text") %>%
     config(displayModeBar = FALSE)
 })
