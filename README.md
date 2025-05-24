@@ -11,10 +11,10 @@ This dashboard uses the TMDB 5000 Movie Dataset, containing comprehensive inform
 Keep in mind that movies available in this dashboard are only up to 2017.
 
 ## How to Use:
-Use the global filters in the sidebar to narrow down your analysis
-Navigate between tabs to explore different aspects of the data
-Click on interactive elements to trigger cross-component updates
-Hover over charts for detailed information
+Use the global filters in the sidebar to narrow down your analysis<br>
+Navigate between tabs to explore different aspects of the data<br>
+Click on interactive elements to trigger cross-component updates<br>
+Hover over charts for detailed information<br>
 
 ## Dataset
 TMDb 5000 Movie Dataset from Kaggle
