@@ -2,11 +2,11 @@
 An interactive dashboard for exploring movie industry trends and analytics.
 
 ## Features:
-Industry Overview: Analyze box office trends, genre performance, and market patterns
-Movie Explorer: Search and filter through thousands of movies with detailed information
-Director & Actor Analytics: Explore collaboration networks and career trajectories
-Data Source:
-This dashboard uses the TMDB 5000 Movie Dataset, containing comprehensive information about movies, cast, crew, and financial performance.
+Industry Overview: Analyze box office trends, genre performance, and market patterns<br>
+Movie Explorer: Search and filter through thousands of movies with detailed information<br>
+Director & Actor Analytics: Explore collaboration networks and career trajectories<br>
+Data Source:<br>
+This dashboard uses the TMDB 5000 Movie Dataset, containing comprehensive information about movies, cast, crew, and financial performance.<br>
 
 Keep in mind that movies available in this dashboard are only up to 2017.
 
