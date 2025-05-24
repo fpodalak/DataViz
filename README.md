@@ -8,7 +8,7 @@ Director & Actor Analytics: Explore collaboration networks and career trajectori
 Data Source:<br>
 This dashboard uses the TMDB 5000 Movie Dataset, containing comprehensive information about movies, cast, crew, and financial performance.<br>
 
-Keep in mind that movies available in this dashboard are only up to 2017.
+Keep in mind that movies available in this dashboard are only up to 2016.
 
 ## How to Use:
 Use the global filters in the sidebar to narrow down your analysis<br>
