@@ -20,7 +20,7 @@ Hover over charts for detailed information
 TMDb 5000 Movie Dataset from Kaggle
 
 ## Live Demo
-[Click here to view the dashboard](https://fpodalak.shinyapps.io/CineMetrics)
+[Click here to view the dashboard](https://fpodalak.shinyapps.io/ass4/)
 
 Built with R Shiny, ggplot2, plotly, and networkD3
 Developed by Marek O. and Filip P.
